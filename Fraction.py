@@ -1,7 +1,13 @@
 class Fraction(object):
 
     def __init__(self, numerator=0, denominator=1):
-        #TODO
+        
+        self._numerator = numerator
+
+        if denominator:
+            self._denominator = denominator
+
+
         pass
 
     def gcd(a, b):
