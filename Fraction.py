@@ -23,11 +23,14 @@ class Fraction(object):
         if denominator == 0:
             raise ZeroDivisionError("Denominator cannot be zero.")
 
-        pass
-
     def gcd(a, b):
-        #TODO
-        pass
+        
+        if a == 0 or b == 0:
+            return 0
+
+        while b != 0:
+            (a, b) = (b, a % b)
+        return a
 
     def get_numerator(self):
         #TODO
