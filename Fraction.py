@@ -33,13 +33,18 @@ class Fraction(object):
         return a
 
     def get_numerator(self):
-        #TODO
-        pass
+        greatest_divisor = Fraction.gcd(self._numerator,self._denominator)
+        if greatest_divisor == 0:
+            return "0"
+        return str(int(self._numerator / greatest_divisor))
 
     def get_denominator(self):
-        #TODO
-        pass
+        greatest_divisor = Fraction.gcd(self._numerator,self._denominator)
+        if greatest_divisor == 0:
+            return "0"
+        return str(int(self._denominator / greatest_divisor))
 
     def get_fraction(self):
-        #TODO
-        pass
+        if self._denominator == 1 or self._numerator == 0:
+            return self.get_numerator()
+        return self.get_numerator() + "/" + self.get_denominator()
