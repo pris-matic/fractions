@@ -5,12 +5,22 @@ class Fraction(object):
         # if numerator is a string
         if isinstance(numerator,str):
             fraction_values = numerator.split("/")
-            if len(fraction_values) < 2:
-                self._numerator = 0
-                self._denominator = denominator
-            else:
+
+            #removes whitespaces
+            fraction_values = [value.strip() for value in fraction_values]
+
+            if len(fraction_values) == 2 and \
+            fraction_values[0].lstrip("-").isdigit() and \
+            fraction_values[1].lstrip("-").isdigit():
                 self._numerator = int(fraction_values[0])
                 self._denominator = int(fraction_values[1])
+            elif len(fraction_values) == 1 and \
+            fraction_values[0].lstrip("-").isdigit():
+                self._numerator = int(fraction_values[0])
+                self._denominator = denominator
+            else:
+                self._numerator = 0
+                self._denominator = denominator
 
         else:
             self._numerator = numerator
